@@ -17,7 +17,7 @@
     "prisma:dir": "mkdir -p prisma/migrations/0_init",
     "prisma:mi": "npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql",
     "prisma:ma": "npx prisma migrate resolve --applied 0_init",
-    "prisma:generate": "npx prisma generate",
+    "prisma:generate": "npx prisma generate --name",
     "prisma:migrate": "npx prisma migrate dev"
   },
   "devDependencies": {
