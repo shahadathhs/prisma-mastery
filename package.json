@@ -1,16 +1,21 @@
 {
   "name": "prisma-mastery",
   "version": "1.0.0",
-  "main": "raw-query.ts",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/raw-query.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc && tsc-alias",
-    "start": "ts-node --transpile-only -r tsconfig-paths/register src/raw-query.ts",
+    "start": "ts-node --transpile-only -r tsconfig-paths/register src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --ignore-path .gitignore --check \"**/*.+(js|ts|json)\"",
-    "format:fix": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format:fix": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "prisma:pull": "npx prisma db pull",
+    "prisma:mi": "npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql",
+    "prisma:ma": "npx prisma migrate resolve --applied 0_init",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:generate": "npx prisma generate"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
@@ -18,7 +23,6 @@
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
     "prettier": "^3.5.3",
-    "prisma": "^5.10.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
@@ -26,7 +30,8 @@
     "typescript-eslint": "^8.32.1"
   },
   "dependencies": {
-    "@prisma/client": "5.10.2"
+    "@prisma/client": "6.8.2",
+    "prisma": "^6.8.2"
   },
   "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }
