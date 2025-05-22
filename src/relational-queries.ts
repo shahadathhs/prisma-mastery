@@ -1,28 +1,28 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 const relationalQueries = async () => {
-
-    // fluent api
-    const result = await prisma.user.findUnique({
-        where: {
-            id: 1
-        }
-    }).profile();
-
-
-    // relational fillters
-    const publishedPostUsers = await prisma.user.findMany({
-        include: {
-            post: {
-                where: {
-                    published: true
-                }
-            }
-        }
+  // fluent api
+  const result = await prisma.user
+    .findUnique({
+      where: {
+        id: 1,
+      },
     })
-    console.dir(publishedPostUsers, { depth: Infinity })
-};
+    .profile()
 
-relationalQueries();
+  // relational fillters
+  const publishedPostUsers = await prisma.user.findMany({
+    include: {
+      post: {
+        where: {
+          published: true,
+        },
+      },
+    },
+  })
+  console.dir(publishedPostUsers, { depth: Infinity })
+}
+
+relationalQueries()
