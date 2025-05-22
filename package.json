@@ -4,9 +4,9 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node --transpile-only -r tsconfig-paths/register src/index.ts",
     "build": "tsc && tsc-alias",
-    "start": "ts-node --transpile-only -r tsconfig-paths/register src/index.ts",
+    "start": "node dist/index.js",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --ignore-path .gitignore --check \"**/*.+(js|ts|json)\"",
@@ -17,8 +17,9 @@
     "prisma:dir": "mkdir -p prisma/migrations/0_init",
     "prisma:mi": "npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql",
     "prisma:ma": "npx prisma migrate resolve --applied 0_init",
-    "prisma:generate": "npx prisma generate --name",
-    "prisma:migrate": "npx prisma migrate dev"
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
