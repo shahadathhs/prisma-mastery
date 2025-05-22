@@ -26,11 +26,14 @@ const main = async () => {
   // })
   // console.dir(allUsers, { depth: null })
 
-  const post = await prisma.post.update({
-    where: { id: 1 },
-    data: { published: true },
-  })
-  console.log(post)
+  // const post = await prisma.post.update({
+  //   where: { id: 1 },
+  //   data: { published: true },
+  // })
+  // console.log(post)
+
+  console.log("THIS IS QUERY OUTPUT");
+  // * Here Function with query will be imported
 }
 
 main()
