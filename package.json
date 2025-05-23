@@ -14,12 +14,15 @@
     "prisma": "npx prisma",
     "prisma:init": "npx prisma init --datasource-provider postgresql --output ../generated/prisma",
     "prisma:pull": "npx prisma db pull",
+    "prisma:push": "npx prisma db push",
     "prisma:dir": "mkdir -p prisma/migrations/0_init",
     "prisma:mi": "npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql",
     "prisma:ma": "npx prisma migrate resolve --applied 0_init",
     "prisma:generate": "npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "prisma:validate": "npx prisma validate",
+    "prisma:format": "npx prisma format"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
